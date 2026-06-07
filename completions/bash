@@ -1,0 +1,7 @@
+_nick() {
+  COMPREPLY=()
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=( $(compgen -W "add remove rename list search path whereami stats help" -- "$cur") )
+}
+complete -F _nick nick
+nickj() { :; }
