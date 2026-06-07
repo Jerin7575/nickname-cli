@@ -23,8 +23,8 @@ A lightweight, fast CLI tool for Termux/Linux that lets you **bookmark directori
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/<your-username>/nick.git
-cd nick
+git clone https://github.com/Jerin7575/nickname-cli.git
+cd nickname-cli
 ```
 
 ### 2. Install
