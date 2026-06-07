@@ -1,0 +1,98 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+DB="$HOME/.config/nick/bookmarks"
+mkdir -p "$HOME/.config/nick"
+touch "$DB"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+help() {
+cat << 'EOF'
+Nick - Directory Bookmark Manager
+
+nick add <name>
+nick remove <name>
+nick rename <old> <new>
+nick list
+nick search <text>
+nick path <name>
+nick whereami
+nick stats
+nick help
+EOF
+}
+
+add() {
+  name="$2"
+  dir="$(pwd)"
+
+  if [ -z "$name" ]; then
+    echo "Usage: nick add <name>"; return
+  fi
+
+  # duplicate name check
+  if grep -q "^$name|" "$DB"; then
+    echo -e "${YELLOW}Nickname already exists: $name${NC}"
+    return
+  fi
+
+  # duplicate path check
+  existing=$(grep "|$dir$" "$DB" | cut -d'|' -f1)
+  if [ -n "$existing" ]; then
+    echo -e "${YELLOW}This directory already has nickname: $existing${NC}"
+    return
+  fi
+
+  echo "$name|$dir" >> "$DB"
+  echo -e "${GREEN}Added $name -> $dir${NC}"
+}
+
+list() {
+  cat "$DB"
+}
+
+remove() {
+  grep -v "^$2|" "$DB" > "$DB.tmp" && mv "$DB.tmp" "$DB"
+  echo "Removed $2"
+}
+
+rename() {
+  old="$2"
+  new="$3"
+  dir=$(grep "^$old|" "$DB" | cut -d'|' -f2-)
+  grep -v "^$old|" "$DB" > "$DB.tmp" && mv "$DB.tmp" "$DB"
+  echo "$new|$dir" >> "$DB"
+  echo "Renamed $old -> $new"
+}
+
+search() {
+  grep -i "$2" "$DB" | sort
+}
+
+path() {
+  grep "^$2|" "$DB" | cut -d'|' -f2-
+}
+
+whereami() {
+  pwd
+}
+
+stats() {
+  wc -l "$DB"
+}
+
+case "$1" in
+  add) add "$@" ;;
+  remove) remove "$@" ;;
+  rename) rename "$@" ;;
+  list) list ;;
+  search) search "$@" ;;
+  path) path "$@" ;;
+  whereami) whereami ;;
+  stats) stats ;;
+  help|"") help ;;
+  *) echo "Unknown command" ;;
+esac
