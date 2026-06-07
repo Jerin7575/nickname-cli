@@ -1,0 +1,3 @@
+#compdef nick
+
+_arguments "1: :((add remove rename list search path whereami stats help))"
