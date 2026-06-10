@@ -1,24 +1,24 @@
-# 📁 Nick - Directory Bookmark Manager
+#  Nick - Directory Bookmark Manager
 
 A lightweight, fast CLI tool for Termux/Linux that lets you **bookmark directories and jump between them easily**.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 📌 Save current directory with a name
-- 📂 List all bookmarks
-- ❌ Remove bookmarks
-- ✏️ Rename bookmarks
-- 🔍 Search bookmarks
-- 📍 Get full path of a bookmark
-- 🧭 Show current directory info
-- 📊 View total bookmark count
-- ⚡ Fast, minimal, no dependencies
+-  Save current directory with a name
+-  List all bookmarks
+-  Remove bookmarks
+-  Rename bookmarks
+-  Search bookmarks
+-  Get full path of a bookmark
+-  Show current directory info
+-  View total bookmark count
+-  Fast, minimal, no dependencies
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### 1. Clone the repository
 
@@ -35,65 +35,65 @@ bash install.sh
 
 ---
 
-## 🚀 Usage
+##  Usage
 
-### 📌 Add bookmark (current directory)
+###  Add bookmark (current directory)
 ```sh
 nick add proj
 ```
 
 ---
 
-### 📂 List bookmarks
+###  List bookmarks
 ```sh
 nick list
 ```
 
 ---
 
-### ❌ Remove bookmark
+###  Remove bookmark
 ```sh
 nick remove proj
 ```
 
 ---
 
-### ✏️ Rename bookmark
+###  Rename bookmark
 ```sh
 nick rename proj work
 ```
 
 ---
 
-### 🔍 Search bookmarks
+###  Search bookmarks
 ```sh
 nick search pro
 ```
 
 ---
 
-### 📍 Get bookmark path
+###  Get bookmark path
 ```sh
 nick path proj
 ```
 
 ---
 
-### 📊 Show stats
+###  Show stats
 ```sh
 nick stats
 ```
 
 ---
 
-### 🧭 Show current directory
+###  Show current directory
 ```sh
 nick whereami
 ```
 
 ---
 
-### ❓ Help
+###  Help
 
 ```sh
 nick help
@@ -101,21 +101,20 @@ nick help
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 nick/
 ├── nick
 ├── install.sh
 ├── README.md
-├── LICENSE
 └── package/
     └── build.sh
 ```
 
 ---
 
-## 📂 Storage
+##  Storage
 
 Stored in:
 
@@ -131,7 +130,7 @@ name|/full/path
 
 ---
 
-## ⚡ Example Workflow
+##  Example Workflow
 
 ```sh
 cd ~/projects/myapp
@@ -144,12 +143,12 @@ nick path app
 
 ---
 
-## 🧠 Philosophy
+##  Philosophy
 
 Minimal. Fast. Portable. No daemons.
 
 ---
 
-## 📜 License
+##  License
 
 MIT
